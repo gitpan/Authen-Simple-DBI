@@ -1,7 +1,9 @@
 Build.PL
 Changes
 lib/Authen/Simple/DBI.pm
+Makefile.PL
 MANIFEST			This list of files
+README
 t/01use.t
 t/02pod.t
 t/03podcoverage.t
@@ -9,5 +11,3 @@ t/04basic.t
 t/var/database.db
 t/var/database.sql
 META.yml
-Makefile.PL
-README

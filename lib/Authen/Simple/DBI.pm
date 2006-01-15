@@ -7,7 +7,7 @@ use base 'Authen::Simple::Adapter';
 use DBI              qw[SQL_CHAR];
 use Params::Validate qw[];
 
-our $VERSION = 0.1;
+our $VERSION = 0.2;
 
 __PACKAGE__->options({
     dsn => {
@@ -26,7 +26,7 @@ __PACKAGE__->options({
         type     => Params::Validate::SCALAR,
         optional => 1
     },
-    attributes => {
+    attributes => { # undocumented for now
         type     => Params::Validate::HASHREF,
         default  => { ChopBlanks => 1, PrintError => 0, RaiseError => 0 },
         optional => 1
@@ -104,11 +104,9 @@ sub check {
 
     $sth->finish;
 
-    unless ( defined $encrypted ) {
+    unless ( defined $encrypted && length $encrypted ) {
 
-        my $statement = $self->statement;
-
-        $self->log->debug( qq/Encrypted password for user '$username' was not found with statement '$statement'./ )
+        $self->log->debug( qq/Encrypted password for user '$username' is null./ )
           if $self->log;
 
         return 0;

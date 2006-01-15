@@ -1,6 +1,6 @@
 ---
 name: Authen-Simple-DBI
-version: 0.1
+version: 0.2
 author:
   - 'Christian Hansen C<ch@ngmedia.com>'
 abstract: Simple DBI authentication
@@ -11,5 +11,5 @@ requires:
 provides:
   Authen::Simple::DBI:
     file: lib/Authen/Simple/DBI.pm
-    version: 0.1
+    version: 0.2
 generated_by: Module::Build version 0.2611
